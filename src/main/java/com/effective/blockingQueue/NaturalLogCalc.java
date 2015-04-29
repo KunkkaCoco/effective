@@ -15,14 +15,13 @@ public class NaturalLogCalc {
 
     public static void main(String[] args) {
         CyclicBarrier barrier = new CyclicBarrier(numberOfTerms, new Runnable() {
-            @Override
             public void run() {
                 System.out.println("Computing series sum");
                 double sum = 0;
                 for (double term : termArray) {
                     sum += term;
                 }
-                System.out.println("ln (1-" + x + ")equals " + -sum);
+                System.out.println("ln (1-" + x + ") equals " + -sum);
             }
         });
 
@@ -42,7 +41,6 @@ public class NaturalLogCalc {
             this.termIndex = termIndex;
         }
 
-        @Override
         public void run() {
             double result = Math.pow(x, termIndex + 1) / (termIndex + 1);
             termArray[termIndex] = result;
