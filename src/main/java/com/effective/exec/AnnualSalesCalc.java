@@ -67,7 +67,10 @@ public class AnnualSalesCalc {
         for (int row = 0; row < NUMBER_OF_CUSTOMERS; row++) {
             Callable<Integer> callable = new Summer(row);
             Future<Integer> future = executor.submit(callable);
+//            FutureTask<Integer> future = new FutureTask<Integer>(callable);
+//            future.run();  注释可替代executor.submit方法
             set.add(future);
+
 
         }
         int sum  = 0;
